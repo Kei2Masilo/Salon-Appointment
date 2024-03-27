@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            background-color: black;
+            color: #e1ad21; /* Mustard color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            background-color: #000000; /* Dark background color for the header */
+            padding: 1em;
+            width: 100%; /* Take full width */
+            box-sizing: border-box;
+        }
+
+        header img {
+            width: 500px; /* Adjust the width as needed */
+            height: 350px; /* Maintain aspect ratio */
+        }
+
+        form {
+            text-align: center;
+            max-width: 400px; /* Adjust the max-width as needed */
+            width: 100%;
+            padding: 1em;
+            box-sizing: border-box;
+            margin-top: 20px; /* Add margin between header and form */
+        }
+
+        label, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            width: 100%; /* Take full width */
+            font-size: 16px;
+            border: 1px solid #e1ad21; /* Mustard color */
+            background-color: black;
+            color: #e1ad21; /* Mustard color */
+        }
+
+        /* Added section styling */
+        section {
+            border: 5px solid #e1ad21; /* Mustard color */
+            padding: 20px;
+            margin-top: 20px;
+            margin: 150px;
+            margin-left: 150px;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            width: 106px; /* Set the width to 106px */
+            background-color: #e1ad21; /* Mustard color */
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <section> 
+    <form id="servicespage.html" action="servicespage.html" method="get">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
+
+        <br>
+
+        <label for="appointmentTime">Appointment Time:</label>
+        <select id="appointmentTime" name="appointmentTime" required style="width: 106%;">
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+        </select>
+
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+    </section>
+
+    <script>
+        document.getElementById("servicespage.html").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get values from form
+            var username = document.getElementById("username").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var appointmentTime = document.getElementById("appointmentTime").value;
+
+            // Store values in localStorage
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('phoneNumber', phoneNumber);
+            sessionStorage.setItem('appointmentTime', appointmentTime);
+       
+
+            // Redirect to Services Page
+            window.location.href = "servicespage.html";
+        });
+    </script>
+</body>
+</html>
